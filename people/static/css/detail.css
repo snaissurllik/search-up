@@ -1,0 +1,125 @@
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.card-text {
+    width: 90%;
+    margin-top: 0px;
+    padding-top: 3px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.name-text {
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.card-wrapper {
+    padding: auto;
+}
+
+.grid {
+    margin-top: 8px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.views {
+    background: none;
+    display: flex;
+    /* padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px; */
+}
+
+.views-num {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    font-size: 30px;
+}
+
+.views-icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+}
+
+.likes {
+    background: none;
+    display: flex;
+    /* padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px; */
+    justify-content: right;
+    user-select: none;
+}
+
+.likes-num {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 30px;
+}
+
+.likes-icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    text-decoration: none;
+    user-select: none;
+}
+
+.descr-text {
+    margin-bottom: 1px;
+}
+
+.photo {
+    text-align: center;
+}
+
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #9c9c9c #ffffff00;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: auto;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #85858553;
+    /* border-radius: 10px; */
+}
+
+img {
+    border-radius: 50%;
+    height: 470px;
+    width: 470px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#like-btn:hover {
+    cursor: pointer;
+}
+
+#back-btn {
+    text-decoration: none;
+    font-size: 40px;
+}
+
+#back-btn:hover {
+    cursor: pointer;
+}

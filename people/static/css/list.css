@@ -1,0 +1,71 @@
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.card {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+
+.custom-grid {
+    grid-template-columns: 0.3fr 1.7fr;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    float: top;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    margin: 20px;
+    text-align: center;
+}
+
+#side-panel {
+    height: 81vh;
+    margin-right: 5vh;
+}
+
+.card-text {
+    margin-bottom: 1vh;
+}
+
+.card-location {
+    font-style: italic;
+}
+
+.card-heading {
+    margin-bottom: 2vh;
+}
+
+.reset-link {
+    font-size: 150%;
+    text-decoration: none;
+}
+
+.container-link {
+    padding: 0%;
+    margin: 0%;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.read-more-ref {
+    text-align: right;
+    padding: 10px;
+}
+
+.custom-btn {
+    padding: 3px;
+}
