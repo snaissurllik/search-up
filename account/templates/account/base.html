@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="https://picocss.com/favicon.ico">
+    <link rel="canonical" href="https://picocss.com/examples/sign-in/">
+
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+
+    <!-- Custom styles for this example -->
+    <link rel="stylesheet" href="{% static "css/register.css" %}" id="template-styles">
+    {% block links %}{% endblock %}
+  </head>
+
+  <body>
+
+    <!-- Nav -->
+    <nav class="container-fluid">
+      <ul>
+        <li><a href="./" class="contrast" onclick="event.preventDefault()"><strong>SearchUp</strong></a></li>
+      </ul>
+      <ul>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url "profile" %}" class="secondary">Profile</a>
+        </li>
+        {% endif %}
+        <li>
+          <a href="{% url "people_list" %}" class="secondary">People</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url "logout" %}" class="secondary">Logout</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{% url "login" %}" class="secondary">Sign in</a>
+        </li>
+        <li>
+          <a href="{% url "register" %}" class="secondary">Sign up</a>
+        </li>
+        {% endif %}
+        <li>
+          <details role="list" dir="rtl">
+            <summary aria-haspopup="listbox" role="link" class="secondary">Theme</summary>
+            <ul role="listbox">
+              <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+              <li><a href="#" data-theme-switcher="light">Light</a></li>
+              <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+        </li>
+      </ul>
+    </nav><!-- ./ Nav -->
+  {% block content %}
+  {% endblock %}
+</body>
+<script src="{% static "js/theme-switcher.js" %}"></script>
+{% block script %}{% endblock %}
+</html>

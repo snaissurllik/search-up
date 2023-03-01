@@ -1,0 +1,50 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static "css/list.css" %}">
+{% endblock %}
+
+{% block title %}People{% endblock title %}
+
+{% block content %}
+  <div class="grid custom-grid">
+        <article id="side-panel">
+            <form method="POST">
+              {% csrf_token %}
+              {{ form }}
+            </form>
+        </article>
+     {% if profiles.exists %}
+     <div class="scrolling-wrapper">
+        {% for p in profiles %}
+        <article class="card">
+          {% if p.photo %}
+          <img src="{{ p.photo.url }}" alt="">
+          {% else %}
+          <img src="{% static "images/default_photo.png" %}" alt="">
+          {% endif %}
+          <h4 class="card-heading">{{ p.user.first_name }} {{ p.user.last_name }}</h4>
+          <p class="card-text card-location">{{ p.region }}, {{ p.country }}</p>
+          <p class="card-text">{{ p.description|truncatewords:10 }}</p>
+          Tags:
+          {% for t in p.tags.all %}
+            <a href="{{ t.get_absolute_url }}" class="contrast">{{ t }}</a>
+          {% endfor %}
+          <br>
+          <div class="read-more-ref">
+            <a href="{{ p.get_absolute_url }}" class="contrast custom-btn" role="button">Read more</a>
+          </div>
+        </article>
+      {% endfor %}
+      </div>
+    {% else %}
+    <article class="info">
+      <h1>No users according to your filters</h1>
+    </article>
+    {% endif %}
+  </div>
+{% endblock %}
+{% block script %}
+<script src="{% static "js/geo-fetch.js" %}"></script>
+{% endblock %}

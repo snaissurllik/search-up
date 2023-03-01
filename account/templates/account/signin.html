@@ -1,0 +1,10 @@
+{% extends "./form.html" %}
+
+{% block title %}Sign in{% endblock %}
+{% block action %}Sign in{% endblock %}
+{% block label %}Sign in to continue{% endblock %}
+{% block form %} {{ form }} {% endblock %}
+{% block btn_text %}Sign in{% endblock %}
+{% block extra %}
+  Or <a class="contrast" href="{% url "register" %}">sign up</a> if you don't have an account
+{% endblock %}

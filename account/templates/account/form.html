@@ -1,0 +1,26 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block links %}{% endblock %}
+{% block content %}
+    <!-- Main -->
+    <main class="container">
+      <article class="grid">
+        <div>
+          <hgroup>
+            <h1>{% block action %}{% endblock %}</h1>
+            <h2>{% block label %}{% endblock %}</h2>
+          </hgroup>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% block form %}{% endblock %}
+            <button type="submit" class="contrast">{% block btn_text %}{% endblock %}</button>
+          </form>
+          {% block extra %}{% endblock %}
+        </div>
+        <div></div>
+      </article>
+    </main><!-- ./ Main -->
+
+    <!-- Minimal theme switcher -->
+{% endblock %}
+{% block script %}{% endblock %}

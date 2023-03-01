@@ -1,0 +1,18 @@
+{% extends "./form.html" %}
+{% load static %}
+
+{% block title %}Sign up{% endblock %}
+{% block action %}Sign up{% endblock %}
+{% block label %}Sign up to continue{% endblock %}
+{% block form %}
+{{ main_form }}
+{{ country_form }}
+{{ region_form }}
+{% endblock %}
+{% block btn_text %}Sign up{% endblock %}
+{% block extra %}
+  Or <a class="contrast" href="{% url "login" %}">sign in</a> if you already have an account
+{% endblock %}
+{% block script %}
+<script src="{% static "js/geo-fetch.js" %}"></script>
+{% endblock %}

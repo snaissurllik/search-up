@@ -1,0 +1,42 @@
+{% extends "./form.html" %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static "css/profile.css" %}">
+{% endblock %}
+
+{% block title %}
+Profile
+{% endblock %}
+{% block action %}
+<h1 class="center-heading">
+  Your profile
+</h1>
+{% endblock %}
+{% block label %}{% endblock %}
+{% block form %}
+{% if user.profile.photo %}
+<img src="{{ user.profile.photo.url }}" alt="">
+{% else %}
+<img src="{% static "images/default_photo.png" %}" alt="">
+{% endif %}
+{{ photo_form }}
+{{ user_form }}
+{{ profile_form.description }} 
+{{ profile_form.tags }}
+<h5>Your profile has {{ user.profile.views }} views and {{ user.profile.likes }} likes!</h5>
+<label for="id_is_public" class="switch-btn">
+  {{ profile_form.is_public }}
+  Publish my profile
+</label>
+
+
+{% endblock %}
+{% block btn_text %}Done{% endblock %}
+{% block extra %}
+  Or <a class="contrast" href="{% url "people_list" %}">go back</a> to view other people's profiles
+{% endblock %}
+{% block script %}
+<script>
+</script>
+{% endblock %}

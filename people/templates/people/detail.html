@@ -1,0 +1,50 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static "css/detail.css" %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
+
+{% block title %}{{ profile.user.first_name }}{% endblock title %}
+{% block content %}
+<div class="card">
+  <article class="article-card">
+    <div class="card-wrapper">
+      <a class="material-icons contrast" id="back-btn" onclick="history.back()">arrow_back</a>
+      <div class="photo">
+        {% if profile.photo %}
+        <img src="{{ profile.photo.url }}" class="img-detail">
+        {% else %}
+        <img src="{% static "images/default_photo.png" %}" class="img-detail">
+        {% endif %}
+      </div>
+      <div class="card-text">
+        <h1 class="name-text">
+          {{ profile.user.first_name }} {{ profile.user.last_name }}
+        </h1>
+        <p class="descr-text">{{ profile.description }}</p>
+      </div>
+      <div class="grid">
+        <div class="views">
+          <span class="material-icons views-icon" style="font-size: 45px;">visibility</span>
+          <span class="views-num">{{ profile.views }}</span>
+        </div>
+        <div class="likes">
+          <a class="material-icons likes-icon contrast" id="like-btn" style="font-size: 45px; {% if is_liked %}color: #fc033d{% endif %}">
+            favorite
+          </a>
+          <span class="likes-num" id="likes-btn-num">{{ profile.likes }}</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+{% endblock content %}
+{% block script %}
+<script src="//cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+<script>
+  const profile_id = {{ profile.id }}
+</script>
+<script src="{% static "js/likes.js" %}"></script>
+{% endblock script %}
