@@ -1,6 +1,6 @@
 # SearchUp
 
-This is a project written in Python Django, Rest Framework. Main database - Postgres , Redis is used as a secondary database and cache storage. The project is containerized using Docker and Docker Compose.
+This is a project written in Python using Django Framework, Rest Framework. Main database - Postgres , Redis is used as a secondary database and cache storage. The project is containerized using Docker and Docker Compose.
 
 ## Getting Started
 
@@ -13,17 +13,23 @@ Before you can use this project, you will need to have the following installed o
 
 ### Installation
 
-1. Clone the repository to your local machine: git clone https://github.com/snaissurllik/search-up.git
+1. Clone the repository to your local machine: ```git clone https://github.com/snaissurllik/search-up.git```
 
-2. Generate a secret key for your Django project by running the following command: python secret_key_generator.py
+2. Generate a secret key for your Django project by running the following command: ```python secret_key_generator.py```
 
 3. Create .env file in the root project directory and specify environment variables listed in .env-template. Copy generated secret key to SECRET_KEY variable. Note that DB_USER, DB_PASSWORD, DB_NAME varibales can be freely set to any values and Postgres container will automatically create database using given credentials.
 
-4. Start the Docker containers by running the following command: docker-compose up --build
+4. Start the Docker containers by running the following command: ```docker-compose up --build```
 
-5. Populate the database with countries and regions by running the following command: docker-compose exec django python load_geo.py
+5. Populate the database with countries, regions and tags by running the following command: ```docker-compose exec django python db_init.py```
 
 6. Open your web browser and navigate to `http://localhost:8000/account/login` to access the web application.
 
-7. To create a superuser (admin), use the following command: docker-compose exec django python manage.py createsuperuser
+7. To create a superuser (admin), use the following command: ```docker-compose exec django python manage.py createsuperuser```
 
+## Unrealised features
+
+Here are some features that a planned for the app but were not implemented:
+
+- Write tests for existing code
+- Make UI responsive: Paying most of attention on backend, I made the UI only optimized for full desktop screen.

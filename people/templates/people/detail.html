@@ -24,6 +24,13 @@
           {{ profile.user.first_name }} {{ profile.user.last_name }}
         </h1>
         <p class="descr-text">{{ profile.description }}</p>
+        <hr>
+        <div class="tags">
+          Tags:
+          {% for t in profile.tags.all %}
+          <a href="{{ t.get_absolute_url }}" class="contrast custom-link">{{ t }}</a>
+          {% endfor %}
+        </div>
       </div>
       <div class="grid">
         <div class="views">

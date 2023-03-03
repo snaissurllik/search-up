@@ -1,13 +1,12 @@
 from django.conf import settings
-from django.contrib.auth.models import User
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponseBadRequest
 from django.shortcuts import render
 from account.models import Profile, Tag
 from django.views.generic import TemplateView
 from django.core.cache import cache
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-from .forms import FilterForm
+from .forms import GeoForm, MultipleTagForm
 from redis import Redis
 
 
@@ -16,6 +15,7 @@ r = Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_
 
 class PeopleListView(LoginRequiredMixin, TemplateView):
     template_name = "people/list.html"
+    cache_timeout = 0
 
     def get(self, request, tag_slug=None, *args, **kwargs):
         self.__filter_profiles_get(tag_slug)
@@ -30,7 +30,8 @@ class PeopleListView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["profiles"] = self.profiles
-        context["form"] = FilterForm()
+        context["geo_form"] = GeoForm()
+        context["tags_form"] = MultipleTagForm()
         return context
 
     def __get_profiles(self):
@@ -41,7 +42,7 @@ class PeopleListView(LoginRequiredMixin, TemplateView):
                 .select_related("user", "country", "region")
                 .prefetch_related("tags")
             )
-            cache.set("profiles", profiles, timeout=10)
+            cache.set("profiles", profiles, timeout=self.cache_timeout)
             return profiles
         return cache.get("profiles")
 

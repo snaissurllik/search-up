@@ -93,7 +93,7 @@ class ProfileEditForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
         label="",
-        widget=forms.SelectMultiple,
+        widget=forms.CheckboxSelectMultiple,
         required=False,
     )
     is_public = forms.BooleanField(

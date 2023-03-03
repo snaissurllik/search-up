@@ -23,7 +23,18 @@ Profile
 {{ photo_form }}
 {{ user_form }}
 {{ profile_form.description }} 
-{{ profile_form.tags }}
+<article class="tags-area">
+<ul class="tags-list" role="listbox">
+  {% for f in profile_form.tags %}
+    <li>
+       <label>
+        {{ f }}
+        {{ f.label }}
+      </label>
+    </li>
+  {% endfor %}
+</ul>
+</article>
 <h5>Your profile has {{ user.profile.views }} views and {{ user.profile.likes }} likes!</h5>
 <label for="id_is_public" class="switch-btn">
   {{ profile_form.is_public }}

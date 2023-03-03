@@ -1,13 +1,19 @@
+from re import template
 from django import forms
 from account.models import Tag, Country, Region
 
 
 class MultipleTagForm(forms.Form):
+    template_name = "people/tag_form.html"
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         tags = Tag.objects.all()
         for tag in tags:
-            self.fields[tag.slug] = forms.BooleanField(required=False)
+            self.fields[tag.slug] = forms.BooleanField(
+                required=False,
+                widget=forms.CheckboxInput(attrs={"style": "display: inline-block;"}),
+            )
 
 
 class CountryFilterForm(forms.Form):
@@ -25,8 +31,8 @@ class RegionFilterForm(forms.Form):
     )
 
 
-class FilterForm(MultipleTagForm, CountryFilterForm, RegionFilterForm):
-    template_name = "people/tag_form.html"
+class GeoForm(CountryFilterForm, RegionFilterForm):
+    template_name = "people/geo_form.html"
     field_order = (
         "country",
         "region",

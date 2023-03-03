@@ -1,19 +1,13 @@
-<details role="list">
-  <summary aria-haspopup="listbox">Filter</summary>
-  <ul role="listbox">
-      {% for f in form %}
-        <li>
-          <label>
-            {{ f }}
-            {{ f.label }}
-          </label>
-        </li>
-      {% endfor %}
-        <li>
-          <button type="submit" class="contrast">Confirm</button>
-        </li>
-  </ul>
-</details>
-<div class="container-link">
-  <a href="{% url "people_list" %}" role="button" class="contrast reset-link">Reset filters</a>
-</div>
+<article class="tags-area">
+<ul class="tags-list" role="listbox">
+  {% for f in form %}
+    <li>
+       <label>
+        {{ f }}
+        {{ f.label }}
+      </label>
+    </li>
+  {% endfor %}
+</ul>
+</article>
+

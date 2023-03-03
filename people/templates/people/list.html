@@ -10,10 +10,23 @@
 {% block content %}
   <div class="grid custom-grid">
         <article id="side-panel">
-            <form method="POST">
-              {% csrf_token %}
-              {{ form }}
-            </form>
+          <form method="POST">
+            {% csrf_token %}
+            <details role="list">
+              <summary aria-haspopup="listbox">Filter</summary>
+              <ul class="test" role="listbox">
+                {{ geo_form }}
+                {{ tags_form }}
+                <li>
+                  <button type="submit" class="contrast">Confirm</button>
+                </li>
+                
+              </ul>
+          </details>
+          </form>
+            <div class="container-link">
+              <a href="{% url "people_list" %}" role="button" class="contrast reset-link">Reset filters</a>
+            </div>
         </article>
      {% if profiles.exists %}
      <div class="scrolling-wrapper">
@@ -28,8 +41,8 @@
           <p class="card-text card-location">{{ p.region }}, {{ p.country }}</p>
           <p class="card-text">{{ p.description|truncatewords:10 }}</p>
           Tags:
-          {% for t in p.tags.all %}
-            <a href="{{ t.get_absolute_url }}" class="contrast">{{ t }}</a>
+          {% for t in p.tags.all|slice:":3" %}
+            <a href="{{ t.get_absolute_url }}" class="contrast custom-link">{{ t }}</a>
           {% endfor %}
           <br>
           <div class="read-more-ref">

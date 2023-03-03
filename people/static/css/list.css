@@ -12,7 +12,7 @@
 
 
 .custom-grid {
-    grid-template-columns: 0.3fr 1.7fr;
+    grid-template-columns: 0.33fr 1.67fr;
     width: 95%;
     margin-left: auto;
     margin-right: auto;
@@ -28,7 +28,7 @@ img {
 }
 
 #side-panel {
-    height: 81vh;
+    height: 80vh;
     margin-right: 5vh;
 }
 
@@ -68,4 +68,19 @@ img {
 
 .custom-btn {
     padding: 3px;
+}
+
+.tags-list {
+    height: 300px;
+    padding-left: 0px;
+}
+
+.tags-list {
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.tags-area {
+    margin-top: 1px;
 }

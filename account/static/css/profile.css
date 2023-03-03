@@ -5,3 +5,22 @@
 .center-heading {
     text-align: center;
 }
+
+.tags-list {
+    height: 200px;
+    padding-left: 0px;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
+}
+
+.tags-list {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.tags-area {
+    margin-top: 1px;
+    margin-bottom: 9px;
+    padding-left: 6px;
+    padding-bottom: 1px;
+}
