@@ -32,4 +32,3 @@ Before you can use this project, you will need to have the following installed o
 Here are some features that a planned for the app but were not implemented:
 
 - Write tests for existing code
-- Make UI responsive: Paying most of attention on backend, I made the UI only optimized for full desktop screen.
