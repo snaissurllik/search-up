@@ -1,6 +1,6 @@
 # SearchUp
 
-This is a project written in Python using Django Framework, Rest Framework. Main database - Postgres , Redis is used as a secondary database and cache storage. The project is containerized using Docker and Docker Compose.
+This is my educational project written in Python using Django Framework, Rest Framework. Main database - Postgres , Redis is used as a secondary database and cache storage. The project is containerized using Docker and Docker Compose.
 
 ## Getting Started
 
@@ -32,4 +32,3 @@ Before you can use this project, you will need to have the following installed o
 Here are some features that a planned for the app but were not implemented:
 
 - Write tests for existing code
-- Make UI responsive: Paying most of attention on backend, I made the UI only optimized for full desktop screen.
